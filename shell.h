@@ -7,7 +7,8 @@
 #include <stdlib.h>
 
 
-void shell_ print (const char *string);
+void shell_print (const char *string);
 void prompt(void);
+void line(char *command, size_t size);
 
 #endif
