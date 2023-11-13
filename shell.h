@@ -17,4 +17,6 @@ void line(char *command, size_t size);
 int _strlen(char *s);
 char *_strdup(char *str);
 
+/*parser function*/
+char **_split(char *user_input);
 #endif

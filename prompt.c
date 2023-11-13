@@ -10,20 +10,16 @@ void prompt(void)
 {
 	char pwd[1024];
 	if (isatty(STDOUT_FILENO))
+	{
 		getcwd(pwd, sizeof(pwd));
 		shell_print("sshell$ ");
+	}
 	else
 	{
-		/*perror("Not a terminal");*/
-		FILE* script = fopen("STDIN", r);
-		char line[256];
-
-		while (fgets(line, sizeof(line), script) != NULL)
+		while (!=line)
 		{
-			char** command = _strtok(line);
-			execute(command);
+			char* command = _split(line);
+			execle(command);
 		}
-		fclose(script);
-		getline(&buffer,&size,FILE);
 	}
 }

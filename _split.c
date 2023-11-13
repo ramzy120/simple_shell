@@ -29,7 +29,7 @@ char **_split(char *user_input)
 
 	for(i = 0; i < token_num; i++)
 	{
-		token[i] = _strdup(temp_tok);
+		token[i] = _strdup(temp_token);
 		temp_token = strtok(NULL, DELIM);
 	}
 	token[token_num] = NULL;
