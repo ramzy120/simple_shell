@@ -8,15 +8,15 @@
 #include <stddef.h>
 #include <string.h>
 
-
+/* Printing functins */
 void shell_print (const char *string);
 void prompt(void);
 void line(char *command, size_t size);
 
-/*string function*/
+/* String functions */
 int _strlen(char *s);
 char *_strdup(char *str);
 
-/*parser function*/
+/* Parser functions */
 char **_split(char *user_input);
 #endif

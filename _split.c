@@ -1,10 +1,14 @@
 #include "shell.h"
 
 /**
-  *_split - function that splits strings to tokens
-  *
-  *Return: split token or error
-  */
+ * _split - Splits a string into tokens
+ * @user_input: The String to be split
+ *
+ * This functions takes a string @user_input and splites it into tokens
+ * based on the defined delimiters in the DELIM variable (" \"\n\t\r").
+ *
+ * Return: An array of tokens or NULL on error.
+ */
 char **_split(char *user_input)
 {
 	char **token = NULL;
@@ -27,7 +31,7 @@ char **_split(char *user_input)
 	token_path = _strdup(user_input);
 	temp_token = strtok(token_path, DELIM);
 
-	for(i = 0; i < token_num; i++)
+	for (i = 0; i < token_num; i++)
 	{
 		token[i] = _strdup(temp_token);
 		temp_token = strtok(NULL, DELIM);

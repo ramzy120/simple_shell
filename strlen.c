@@ -1,5 +1,12 @@
 #include "shell.h"
 
-void shell_print(const char *string){
-	write (STDOUT_FILENO, string, strlen (string));
+/**
+ * shell_pint - Prints a string to stdout
+ * @string: The String to be printed
+ *
+ * Function to print the provided string @string to stdout.
+ */
+void shell_print(const char *string)
+{
+	write(STDOUT_FILENO, string, strlen(string));
 }
