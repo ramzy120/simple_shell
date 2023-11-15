@@ -27,10 +27,13 @@ void execute_command(char *command);
 
 
 /* String functions */
+char *_strcpy(char *dest, char *src);
+char *_strcat(char *dest, char *src);
 int _strlen(char *s);
 char *_strdup(char *str);
 char *_strstr(char *haystack, char *needle);
 char *find_strpath(char *cmd, char *path);
+
 
 /*parser and path function*/
 char **split_input(char *user_input);

@@ -11,7 +11,7 @@
 
 int handle_PATH(char **argv, char **env, char **token_array, int *cmd_count)
 {
-	char **paths_array = split_path(get_path(env)), *full_path;
+	char **paths_array = split_path(pathvar(env)), *full_path;
 	int i = 0, len_str, execve_val, status = -1;
 	pid_t pid_val;
 

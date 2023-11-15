@@ -1,24 +1,14 @@
 #include "shell.h"
 
 /**
-<<<<<<< HEAD:split_input.c
   *split_input - function that splits strings to tokens
-  *@user_input: string of user input delimited by DELIM
+  *@user_input: string of user input
   *
-  *Return: split token or error
+  *This functions takes a string @user_input and splites it into tokens
+  *based on the defined delimiters in the DELIM variable (" \"\n\t\r")
+  *Return: An array of tokens or NULL on error.
   */
 char **split_input(char *user_input)
-=======
- * _split - Splits a string into tokens
- * @user_input: The String to be split
- *
- * This functions takes a string @user_input and splites it into tokens
- * based on the defined delimiters in the DELIM variable (" \"\n\t\r").
- *
- * Return: An array of tokens or NULL on error.
- */
-char **_split(char *user_input)
->>>>>>> origin:_split.c
 {
 	char **token = NULL;
 	int token_num = 0, i = 0;

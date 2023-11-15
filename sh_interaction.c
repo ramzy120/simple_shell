@@ -31,7 +31,7 @@ void _interactive(char **argv, char **env, int *cmd_count, int *shellmode)
 	{
 		if (handle_path(argv, env, token_array, cmd_count) == -1)
 		{
-			err_msg(2, *cmd_count, argv[0], token_array[0], "not found");
+			error_msg(2, *cmd_count, argv[0], token_array[0], "not found");
 			free_array(token_array);
 			if (*mode != 1)
 				exit(127);
@@ -99,7 +99,7 @@ int handle_missingpath(char *in_path, char **token_array,
 			token_array[1] == NULL &&
 			access(token_array[0], F_OK) != -1 && in_path == NULL)
 	{
-		err_msg(2, *cmd_count, argv[0], token_array[0], "not found");
+		error_msg(2, *cmd_count, argv[0], token_array[0], "not found");
 		free_array(token_array);
 		if (*mode != 1)
 			exit(127);

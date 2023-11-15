@@ -1,6 +1,15 @@
 #include "shell.h"
 
-<<<<<<< HEAD
+/**
+ *read_input - Reads a line of input from stdin
+ *@argv: argument vector
+ *@sh_mode: mode of shell whether interactive or not
+ *
+ * This functions reads a line of input from stdin using fgets.
+ * it handles potential erros and removes the newline character
+ *Return: 0
+ */
+
 char **read_input(char **argv, int *sh_mode)
 {
 	char *user_str = NULL;
@@ -10,25 +19,12 @@ char **read_input(char **argv, int *sh_mode)
 	int i = 0;
 
 	signal(SIGINT, signal_handler);
-	str_read = getline(&user_str, str_buffsize, stdin);
-	if(str_read < 0)
-=======
-/**
- * line - Reads a line of input from stdin
- * @command: Buffer to store the input
- * @size: Size of the buffer
- *
- * This functions reads a line of input from stdin using fgets.
- * it handles potential erros and removes the newline character.
- */
-
-void line(char *command, size_t size)
-{
-	if (fgets(command, size, stdin) == NULL)
->>>>>>> origin
+	str_read = getline(&user_str, &str_buffsize, stdin);
+	if (str_read < 0)
 	{
 		free(user_str);
-		if (sh_mode == 1)
+
+		if (*sh_mode == 1)
 			write(STDOUT_FILENO, "\n", 1);
 		exit(EXIT_SUCCESS);
 	}
@@ -42,9 +38,9 @@ void line(char *command, size_t size)
 	}
 	token_array = split_input(user_str);
 	/*modify split_input func to free token when array fails*/
-	if (token-array == NULL)
+	if (token_array == NULL)
 	{
-		free(user_str), free_tokenarr(token_array);
+		free(user_str), free_array(token_array);
 		perror(argv[0]);
 		exit(EXIT_FAILURE);
 	}

@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-  *path - returns a pointer to the path variable from environmental variables
+  *pathvar - returns a pointer to the path variable from environmental var
   *@env: environmental variable
   *Return: char pointer
   */
@@ -21,7 +21,7 @@ char *pathvar(char **env)
 	}
 	if (pathv != NULL)
 	{
-		for(i = 0; i < 6; i++)
+		for (i = 0; i < 6; i++)
 			pathv++;
 	}
 	return (pathv);
