@@ -12,7 +12,7 @@ char *pathvar(char **env)
 
 	while (env[i])
 	{
-		if (_strstr(env[i], "PATH") && env[i][0] == 'p' && env[!][4 == '='])
+		if (_strstr(env[i], "PATH") && env[i][0] == 'p' && env[i][4 == '='])
 		{
 			pathv = env[i];
 			break;
