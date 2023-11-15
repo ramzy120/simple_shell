@@ -24,7 +24,7 @@ void _interactive(char **argv, char **env, int *cmd_count, int *shellmode)
 	}
 	/* Handle Missing Path*/
 	if (handle_missingpath(in_path, token_array, env,
-				mode, cmd_count, argv) == 1)
+				 mode, cmd_count, argv) == 1)
 		return;
 	/*Handling PATH for command run anywhere*/
 	if (access(token_array[0], F_OK) == -1)
@@ -57,7 +57,6 @@ void handle_Fpath(char **token_array, char **env, char **argv, int mode)
 {
 	pid_t pid_val;
 	int execve_val;
-	int status;
 
 	(void)mode;
 	pid_val = fork();

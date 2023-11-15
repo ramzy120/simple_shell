@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- *handle_PATH - handles when a command name is passed
+ *handle_path - handles when a command name is passed
  *@argv: Commandline argument passed in for program name
  *@env: Environment variables
  *@token_array: For command and argument
@@ -9,7 +9,7 @@
  *Return: Returns -1 if it fails or 0 if it succeeds
  */
 
-int handle_PATH(char **argv, char **env, char **token_array, int *cmd_count)
+int handle_path(char **argv, char **env, char **token_array, int *cmd_count)
 {
 	char **paths_array = split_path(pathvar(env)), *full_path;
 	int i = 0, len_str, execve_val, status = -1;
