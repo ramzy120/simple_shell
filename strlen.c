@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * shell_pint - Prints a string to stdout
+ * shell_print - Prints a string to stdout
  * @string: The String to be printed
  *
  * Function to print the provided string @string to stdout.

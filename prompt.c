@@ -1,11 +1,9 @@
 #include "shell.h"
-void prompt(void);
 
-/**
-  *prompt - function that checks if shell is interactive or not
-  *
-  *Return: shell prompt or error message
-  */
+void shell_print(const char *message)
+{
+	printf("%", message);
+}
 void prompt(void)
 {
 	char pwd[1024];
@@ -16,10 +14,6 @@ void prompt(void)
 	}
 	else
 	{
-		while (!=line)
-		{
-			char* command = _split(line);
-			execle(command);
-		}
+		shell_print("No prompt displayed\n");
 	}
 }
