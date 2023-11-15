@@ -1,11 +1,12 @@
 #include "shell.h"
 
 /**
-  *_split - function that splits strings to tokens
+  *split_input - function that splits strings to tokens
+  *@user_input: string of user input delimited by DELIM
   *
   *Return: split token or error
   */
-char **_split(char *user_input)
+char **split_input(char *user_input)
 {
 	char **token = NULL;
 	int token_num = 0, i = 0;
