@@ -17,7 +17,16 @@ char **read_input(char **argv, int *sh_mode);
 void signal_handler(int signum);
 void free_array(char **array_tokens);
 
-/*string function*/
+#include <sys/wait.h>
+
+/* Printing functins */
+void shell_print (const char *string);
+void prompt(void);
+void line(char *command, size_t size);
+void execute_command(char *command);
+
+
+/* String functions */
 int _strlen(char *s);
 char *_strdup(char *str);
 char *_strstr(char *haystack, char *needle);
@@ -36,4 +45,8 @@ char *pathvar(char **env);
 		  char **env, int *mode, int *cmd_count, char **argv);
 int handle_path(char **argv, char **env, char **token_array,
 		int *cmd_count);
+
+/* Parser functions */
+char **_split(char *user_input);
+
 #endif
