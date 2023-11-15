@@ -13,14 +13,14 @@ void execute_command(char *command) {
     if (pid < 0) {
         perror("fork");
         exit(EXIT_FAILURE);
-    } else if (pid == 0) { // Child process
-        char *args[] = { "/bin/sh", "-c", command, NULL }; // Shell with the provided command
-        if (execve(args[0], args, NULL) == -1) {
+    } else if (pid == 0) {
+        char *args[] = { "/bin/sh", "-c", command, NULL };
+	if (execve(args[0], args, NULL) == -1) {
             perror("execve");
             exit(EXIT_FAILURE);
         }
-    } else { // Parent process (shell)
-        int status;
-        waitpid(pid, &status, 0); // Wait for the child process to complete
+    } else{
+	    int status;
+	    waitpid(pid, &status, 0);
     }
 }

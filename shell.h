@@ -13,7 +13,7 @@
 void shell_print (const char *string);
 void prompt(void);
 void line(char *command, size_t size);
-void execute_command(char *command)
+void execute_command(char *command);
 
 /* String functions */
 int _strlen(char *s);

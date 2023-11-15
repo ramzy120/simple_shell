@@ -18,16 +18,15 @@ char **parse_command(char *user_input) {
     char *token;
     int arg_count = 0;
 
-    token = strtok(user_input, " "); // Split by spaces
+    token = strtok(user_input, " ");
     while (token != NULL && arg_count < MAX_ARGS - 1) {
         args[arg_count] = _strdup(token);
         if (args[arg_count] == NULL) {
-            // Handle memory allocation error
-            return NULL;
+		return NULL;
         }
         arg_count++;
         token = strtok(NULL, " ");
     }
-    args[arg_count] = NULL; // NULL-terminate the array of arguments
+    args[arg_count] = NULL;
     return args;
 }
