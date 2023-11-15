@@ -35,19 +35,18 @@ void _interactive(char **argv, char **env, int *cmd_count, int *shellmode)
 			free_array(token_array);
 			if (*mode != 1)
 				exit(127);
-
 			errno = 127;
 			return; /*Error Status for when path not found*/
 		}
 		free_array(token_array);
 		return;
 	}
-	/* Handling absolute path or relative path*/
+	/*Handling absolute path or relative path*/
 	handle_Fpath(token_array, env, argv, *mode);
 }
 
 /**
- * handle_path - captures when the other path tests fails
+ * handle_Fpath - captures when the other path tests fails
  * @token_array: Array of tokenized user input
  * @env: Environment variables
  * @argv: Access program name from command line

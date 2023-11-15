@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * handle_signal - Handles the CTRL + C signal
+ * signal_handler - Handles the CTRL + C signal
  * @signum: Number returned from call to Signal
  * Return: Returns Void
  */
