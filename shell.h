@@ -66,10 +66,10 @@ char **split_path(char *path_var);
 char *pathvar(char **env);
 
 /*path hanlders*/
- void handle_Fpath(char **token_array, char **env, char **argv, int mode);
- void _interactive(char **argv, char **env,
+void handle_Fpath(char **token_array, char **env, char **argv, int mode);
+void _interactive(char **argv, char **env,
 		 int *cmd_count, int *shellmode);
- int handle_missingpath(char *in_path, char **token_array,
+int handle_missingpath(char *in_path, char **token_array,
 		  char **env, int *mode, int *cmd_count, char **argv);
 int handle_path(char **argv, char **env, char **token_array,
 		int *cmd_count);
