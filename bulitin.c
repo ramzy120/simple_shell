@@ -65,7 +65,7 @@ void exit_func(char **argv, char **env, char **token_array)
 	}
 	if (token_array[1])
 	{
-		status2 = atoi(token_array[1]);
+		status2 = _atoi(token_array[1]);
 		free_array(token_array);
 		errno = status2;
 		exit(errno);

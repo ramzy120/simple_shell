@@ -15,7 +15,7 @@ char **read_input(char **argv, int *sh_mode)
 	char *user_str = NULL;
 	char **token_array = NULL;
 	ssize_t str_read;
-	size_t str_buffsize;
+	size_t str_buffsize = 0;
 	int i = 0;
 
 	signal(SIGINT, signal_handler);
@@ -25,7 +25,7 @@ char **read_input(char **argv, int *sh_mode)
 		free(user_str);
 
 		if (*sh_mode == 1)
-			write(STDOUT_FILENO, "\n", 1);
+			write(1, "\n", 1);
 		exit(EXIT_SUCCESS);
 	}
 	while (user_str[i])
@@ -35,6 +35,7 @@ char **read_input(char **argv, int *sh_mode)
 			break;
 		if (user_str[i] == '#')
 			user_str[i] = '\0';
+		i++;
 	}
 	token_array = split_input(user_str);
 	/*modify split_input func to free token when array fails*/

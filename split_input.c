@@ -17,25 +17,31 @@ char **split_input(char *user_input)
 
 	if (token_path != NULL)
 	{
-		token_num++;
-		temp_token = strtok(NULL, DELIM);
+		temp_token = strtok(token_path, DELIM);
+		while (temp_token != NULL)
+			token_num++, temp_token = strtok(NULL, DELIM);
 	}
-	token = malloc(sizeof(char *) * (token_num + 1));
+	token = malloc(sizeof(char *) * (token_num));
 	if (token == NULL)
 	{
 		perror("error allocating memory");
-		free(token_path),
+		free(token_path);
+		free(token);
 		exit(EXIT_FAILURE);
 	}
+	free(token_path);
 	token_path = _strdup(user_input);
 	temp_token = strtok(token_path, DELIM);
+	token[i] = _strdup(temp_token);
 
-	for (i = 0; i < token_num; i++)
+	while (temp_token != NULL)
 	{
-		token[i] = _strdup(temp_token);
+		i++;
 		temp_token = strtok(NULL, DELIM);
+		if (temp_token != NULL)
+			token[i] = _strdup(temp_token);
 	}
-	token[token_num] = NULL;
+	token[i] = NULL;
 
 	free(token_path);
 	return (token);
