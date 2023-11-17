@@ -4,8 +4,6 @@
   *split_input - function that splits strings to tokens
   *@user_input: string of user input
   *
-  *This functions takes a string @user_input and splites it into tokens
-  *based on the defined delimiters in the DELIM variable (" \"\n\t\r")
   *Return: An array of tokens or NULL on error.
   */
 char **split_input(char *user_input)
@@ -19,29 +17,34 @@ char **split_input(char *user_input)
 	{
 		temp_token = strtok(token_path, DELIM);
 		while (temp_token != NULL)
+		{
 			token_num++, temp_token = strtok(NULL, DELIM);
+		}
 	}
 	token = malloc(sizeof(char *) * (token_num));
 	if (token == NULL)
 	{
 		perror("error allocating memory");
-		free(token_path);
-		free(token);
-		exit(EXIT_FAILURE);
+		free(token), free(token_path), exit(EXIT_FAILURE);
 	}
-	free(token_path);
-	token_path = _strdup(user_input);
-	temp_token = strtok(token_path, DELIM);
-	token[i] = _strdup(temp_token);
+	token_path = _strdup(user_input), token[i] = _strdup(temp_token);
 
+	if (temp_token == NULL)
+	{
+		free(token_path);
+		return (NULL);
+	}
 	while (temp_token != NULL)
 	{
-		i++;
 		temp_token = strtok(NULL, DELIM);
-		if (temp_token != NULL)
-			token[i] = _strdup(temp_token);
+		if (token[i] == NULL)
+		{
+			perror("error allocating mem"), exit(EXIT_FAILURE);
+		}
+		i++;
+		token[i] = _strdup(temp_token);
 	}
-	token[i] = NULL;
+	token[token_num] = NULL;
 
 	free(token_path);
 	return (token);
