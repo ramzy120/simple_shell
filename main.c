@@ -11,22 +11,22 @@
 
 int main(int argc, char **argv, char **env)
 {
-	int shell_mode = 0;
+	int sh_mode = 0;
 
 	cmd_count = 1;
 	(void)argc;
 
 	if (isatty(0) == 1)
-		shell_mode = 1;
+		sh_mode = 1;
 	errno = 0;
 
 	while (1)
 	{
-		if (shell_mode == 1)
+		if (sh_mode == 1)
 		{
 			write(1, "$", 2);
 		}
-		_interactive(argv, env, &cmd_count, &shell_mode);
+		_interactive(argv, env, &cmd_count, &sh_mode);
 		cmd_count++;
 	}
 	return (errno);

@@ -31,10 +31,9 @@ return (length);
 char *_strdup(char *str)
 {
 char *dup;
-unsigned int i, len;
-
+unsigned int i;
+size_t len = strlen(str);
 i = 0;
-len = 0;
 
 if (str == NULL)
 return (NULL);
@@ -45,7 +44,7 @@ len++;
 dup = malloc(sizeof(char) * (len + 1));
 
 if (dup == NULL)
-return (NULL);
+	return (NULL);
 
 while ((dup[i] = str[i]) != '\0')
 i++;

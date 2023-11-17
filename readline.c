@@ -39,6 +39,7 @@ char **read_input(char **argv, int *sh_mode)
 	}
 	token_array = split_input(user_str);
 	/*modify split_input func to free token when array fails*/
+	token_array = malloc(sizeof(char *) * (*user_str));
 	if (token_array == NULL)
 	{
 		free(user_str), free_array(token_array);

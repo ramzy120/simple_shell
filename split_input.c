@@ -39,7 +39,7 @@ char **split_input(char *user_input)
 		temp_token = strtok(NULL, DELIM);
 		if (token[i] == NULL)
 		{
-			perror("error allocating mem"), exit(EXIT_FAILURE);
+			perror("error mem"), free(token_path), free(token), exit(EXIT_FAILURE);
 		}
 		i++;
 		token[i] = _strdup(temp_token);
